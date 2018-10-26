@@ -167,4 +167,27 @@ class TickView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class Renderer(var view : TickView) {
+
+        private val tick : Tick = Tick(0)
+
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(Color.parseColor("#BDBDBD"))
+            tick.draw(canvas, paint)
+            animator.animate {
+                tick.update {i, scl ->
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            tick.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
