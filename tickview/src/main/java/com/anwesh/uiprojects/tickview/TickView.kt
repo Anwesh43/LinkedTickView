@@ -4,6 +4,7 @@ package com.anwesh.uiprojects.tickview
  * Created by anweshmishra on 26/10/18.
  */
 
+import android.app.Activity
 import android.view.View
 import android.view.MotionEvent
 import android.graphics.Canvas
@@ -190,6 +191,15 @@ class TickView(ctx : Context) : View(ctx) {
             tick.startUpdating {
                 animator.start()
             }
+        }
+    }
+
+    companion object {
+
+        fun create(activity : Activity) : TickView {
+            val view : TickView = TickView(activity)
+            activity.setContentView(view)
+            return view
         }
     }
 }
