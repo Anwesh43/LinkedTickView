@@ -28,7 +28,7 @@ fun Canvas.drawTickView(i : Int, scale : Float, paint : Paint) {
         val sf : Float = 1f - 2 * j
         val sc : Float = Math.min(0.5f, Math.max(scale - 0.5f * j, 0f)) * 2
         save()
-        rotate(-(30 + 15 * j) * sc * sf)
+        rotate(-(45 + 15 * j) * sc * sf)
         drawLine(0f, 0f, 0f, -size/2 * (1 + j), paint)
         restore()
     }
